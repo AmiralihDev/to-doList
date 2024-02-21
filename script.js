@@ -14,10 +14,7 @@ function add() {
     let trash = document.createElement("span");
     trash.innerText = "Delete";
     trash.className = "trash"
-    let btnEdit = document.createElement("button")
-    btnEdit.className = "edit"
-    btnEdit.innerText =  "Edit"
-    taskName.appendChild(btnEdit)
+    
     taskName.appendChild(trash);
     tasks.appendChild(taskName);
   }
@@ -33,11 +30,7 @@ tasks.addEventListener("click",
       e.target.parentElement.remove();
       save();
     }
-     else if (e.target.tagName === "BUTTON") {
-      e.target.parentElement.remove();
-      userInput.value = 
-      save();
-    }
+
   },
   
 );
