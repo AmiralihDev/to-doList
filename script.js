@@ -5,38 +5,46 @@ add.addEventListener("click" ,  () => {
         alert("Please Enter a Task")
     }
     else{
-        document.querySelector('#tasks').innerHTML += `
-            <div class="task">
-                <span id="taskname">
-                    ${userInput.value}
-                </span>
-                <button class="delete">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-                
-            </div>
-        `;
-        save()
-        let current_tasks = document.querySelectorAll(".delete");
-
-
-
-        for(let i=0; i<current_tasks.length; i++){
-            current_tasks[i].onclick = function(){
-                this.parentNode.remove();
-                save()
-            }
+        if (userInput.value.includes('<')) {
+            
         }
-        
-        
-        
-        let tasks = document.querySelectorAll(".task");
-        for(let i=0; i<tasks.length; i++){
-            tasks[i].onclick = function(){
-                this.classList.toggle('completed');
+        else{
+
+            document.querySelector('#tasks').innerHTML += `
+                <div class="task">
+                    <span id="taskname">
+                        ${userInput.value}
+                    </span>
+                    <button class="delete">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                    
+                </div>
+            `;
+    
+            userInput.value = "";
+            save()
+            let current_tasks = document.querySelectorAll(".delete");
+    
+    
+    
+            for(let i=0; i<current_tasks.length; i++){
+                current_tasks[i].onclick = function(){
+                    this.parentNode.remove();
+                    save()
+                }
             }
+            
+            
+            
+            let tasks = document.querySelectorAll(".task");
+            for(let i=0; i<tasks.length; i++){
+                tasks[i].onclick = function(){
+                    this.classList.toggle('completed');
+                }
+            }
+            userInput.value = "";
         }
-        userInput.value = "";
 
     }
 
