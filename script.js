@@ -16,6 +16,7 @@ add.addEventListener("click" ,  () => {
                 
             </div>
         `;
+        save()
         let current_tasks = document.querySelectorAll(".delete");
 
 
@@ -41,3 +42,10 @@ add.addEventListener("click" ,  () => {
 
 }
 )
+function save(){
+    localStorage.setItem("data", tasks.innerHTML)
+}
+function show(){
+    tasks.innerHTML = localStorage.getItem("data")
+}
+show()
